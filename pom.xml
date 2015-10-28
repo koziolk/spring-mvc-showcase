@@ -39,7 +39,7 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
-		
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -71,7 +71,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-				
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
@@ -121,7 +121,7 @@
 			<artifactId>rome</artifactId>
 			<version>1.5.0</version>
 		</dependency>
-		
+
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -133,7 +133,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
-		
+
 		<!-- Joda Time Library -->
 		<dependency>
 			<groupId>joda-time</groupId>
@@ -159,7 +159,7 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>${org.springframework.security-version}</version>
 		</dependency>
-			
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -209,6 +209,7 @@
 			<snapshots><enabled>false</enabled></snapshots>
 		</repository>
 	</repositories>
+
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
@@ -234,6 +235,7 @@
 					</excludes>
 					<junitArtifactName>junit:junit</junitArtifactName>
 					<argLine>-Xmx512m</argLine>
+					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -281,21 +283,56 @@
 					<target>${java-version}</target>
 				</configuration>
 			</plugin>
+
+
+			<!-- Tomcat container -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 			</plugin>
+
+			<!-- Jetty container -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.0.6.v20130930</version>
+				<version>9.3.5.v20151012</version>
 				<configuration>
 					<webApp>
 						<contextPath>/${project.artifactId}</contextPath>
 					</webApp>
 				</configuration>
 			</plugin>
+
+			<!-- JBoss AS -->
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<version>7.7.Final</version>
+				<!--<executions>
+					&lt;!&ndash; Undeploy the application on clean &ndash;&gt;
+					<execution>
+						<id>undeploy</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+						<configuration>
+							<ignoreMissingDeployment>true</ignoreMissingDeployment>
+						</configuration>
+					</execution>
+					&lt;!&ndash; Deploy the application on install &ndash;&gt;
+					<execution>
+						<id>deploy</id>
+						<phase>install</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>-->
+			</plugin>
+
 		</plugins>
 	</build>
+
 </project>

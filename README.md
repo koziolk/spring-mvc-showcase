@@ -4,41 +4,22 @@ Demonstrates the capabilities of the Spring MVC web framework through small, sim
 After reviewing this showcase, you should have a good understanding of what Spring MVC can do and get a feel for how easy it is to use.
 Includes project code along with a supporting slideshow and screen cast.
 
-In this showcase you'll see the following in action:
-
-* The simplest possible @Controller
-* Mapping Requests
-* Obtaining Request Data
-* Generating Responses
-* Message Converters
-* Rendering Views
-* Type Conversion
-* Validation
-* Forms
-* File Upload
-* Exception Handling
-
-To get the code:
+Changes to the original code base
 -------------------
-Clone the repository:
-
-    $ git clone git://github.com/SpringSource/spring-mvc-showcase.git
-
-If this is your first time using Github, review http://help.github.com to learn the basics.
+This version has slightly modified pom.xml file in order to test jboss-as-maven-plugin and compare it with
+tomcat7-maven-plugin.
 
 To run the application:
 -------------------	
 From the command line with Maven:
 
-    $ cd spring-mvc-showcase
-    $ mvn tomcat7:run [-Dmaven.tomcat.port=<port no.>] (In case 8080 is busy] 
+    $ mvn tomcat7:run [-Dmaven.tomcat.port=<port no.>] (In case 8080 is busy]
 
 or
+    $ mvn jetty:run
 
-In your preferred IDE such as SpringSource Tool Suite (STS) or IDEA:
-
-* Import spring-mvc-showcase as a Maven Project
-* Drag-n-drop the project onto the "SpringSource tc Server Developer Edition" or another Servlet 2.5 or > Server to run, such as Tomcat.
+or
+    $ mvn jboss-as:deploy
 
 Access the deployed web application at: http://localhost:8080/spring-mvc-showcase/
 
