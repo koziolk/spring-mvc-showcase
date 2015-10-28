@@ -11,15 +11,26 @@ tomcat7-maven-plugin.
 
 To run the application:
 -------------------	
-From the command line with Maven:
+In order to run the application on your local machine call:
 
-    $ mvn tomcat7:run [-Dmaven.tomcat.port=<port no.>] (In case 8080 is busy]
+#### tomcat7-maven-plugin
+```bash
+mvn tomcat7:run
+```
+or 
 
-or
-    $ mvn jetty:run
+#### jetty-maven-plugin
+```bash
+mvn jetty:run
+```
+or 
 
-or
-    $ mvn jboss-as:deploy
+#### jboss-as-maven-plugin
+This option requires JBoss AS to be installed and running in standaolone mode on your local box. 
+You can download it from: http://www.jboss.org/products/eap/download/
+```bash
+mvn jboss-as:deploy
+```
 
 Access the deployed web application at: http://localhost:8080/spring-mvc-showcase/
 
