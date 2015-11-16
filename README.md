@@ -7,7 +7,7 @@ Includes project code along with a supporting slideshow and screen cast.
 Changes to the original code base
 -------------------
 This version has slightly modified pom.xml file in order to test jboss-as-maven-plugin and compare it with
-tomcat7-maven-plugin.
+tomcat7-maven-plugin and jetty-maven-plugin.
 
 To run the application:
 -------------------	
@@ -26,13 +26,20 @@ mvn jetty:run
 or 
 
 #### jboss-as-maven-plugin
-This option requires JBoss AS to be installed and running in standaolone mode on your local box. 
+This option requires JBoss AS to be installed and running in standalone mode on your local box.
 You can download it from: http://www.jboss.org/products/eap/download/
 ```bash
 mvn jboss-as:deploy
 ```
 
 Access the deployed web application at: http://localhost:8080/spring-mvc-showcase/
+
+Useful links:
+-------------------
+* http://docs.jboss.org/jbossas/7/plugins/maven/latest/
+* http://www.jboss.org/products/eap/download/
+* http://tools.jboss.org/features/livereload.html
+* https://confluence.jetbrains.com/display/IntelliJIDEA/Getting+Started+with+JBoss+Technologies+in+IntelliJ+IDEA
 
 Note:
 -------------------
